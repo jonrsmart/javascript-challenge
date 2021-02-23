@@ -1,17 +1,18 @@
 // from data.js
 var tableData = data;
 
-var datedrop = d3.select("#date");
-datedrop.on("change", runEnter);
-var statedrop = d3.select("#state");
-statedrop.on("change", runEnter);
-var countrydrop = d3.select("#country");
-countrydrop.on("change", runEnter);
-var shapedrop = d3.select("#shape");
-shapedrop.on("change", runEnter);
-var citydrop = d3.select("#city");
-citydrop.on("change", runEnter);
-
+// var datedrop = d3.select("#date");
+// datedrop.on("change", runEnter);
+// var statedrop = d3.select("#state");
+// statedrop.on("change", runEnter);
+// var countrydrop = d3.select("#country");
+// countrydrop.on("change", runEnter);
+// var shapedrop = d3.select("#shape");
+// shapedrop.on("change", runEnter);
+// var citydrop = d3.select("#city");
+// citydrop.on("change", runEnter);
+d3.selectAll(".options").on("change", runEnter);
+function init(){
 var tbody = d3.select("tbody");
     tableData.forEach((sighting) => {
         var row = tbody.append("tr");
@@ -19,7 +20,7 @@ var tbody = d3.select("tbody");
         var cell = row.append("td");
         cell.text(value);
     })})
-
+  }
 var dates = [];
 //Get a Distinct list of Dates
 tableData.forEach(x => {
@@ -105,20 +106,42 @@ function runEnter() {
     var state = d3.select("#state").node().value; 
     var country = d3.select("#country").node().value; 
     var shape = d3.select("#shape").node().value; 
+    console.log(date);
+    console.log(city);
+    console.log(state);
+    console.log(country);
+    console.log(shape);
 
-    let chosenSightings = tableData.filter(function(sighting) {
-        return sighting.datetime === date &&
-        sighting.city === city &&
-        sighting.state === state &&
-        sighting.country === country && 
-        sighting.shape === shape;
-          
-    });
-
+  var filtered = tableData.filter(function(value) {
+    if (shape !== "All" ) {
+      console.log(shape);
+      return value.shape === shape;
+    }
+    if (country !== "All" ) {
+      console.log(country);
+      return value.country === country;
+    }
+    if (state !== "All" ) {
+      console.log(state);
+      return value.state === state;
+    }
+    if (city !== "All" ) {
+      console.log(city);
+      return value.city === city;
+    }  
+    if (date !== "All") {
+        console.log(date)
+        return value.datetime === date;
+      }
+      else {
+        return true;
+      }
+    })
+    console.log(filtered);
+  
     var tbody = d3.select("tbody");
-
-    chosenSightings.forEach((sighting) => {
-        tbody.html("")
+    tbody.html("")
+    filtered.forEach((sighting) => {
         var row = tbody.append("tr");
         Object.entries(sighting).forEach(([key, value]) => {
         var cell = row.append("td");
@@ -127,3 +150,5 @@ function runEnter() {
 
 
 };
+
+init();
