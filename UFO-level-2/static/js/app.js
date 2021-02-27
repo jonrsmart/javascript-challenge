@@ -1,16 +1,6 @@
 // from data.js
 var tableData = data;
 
-// var datedrop = d3.select("#date");
-// datedrop.on("change", runEnter);
-// var statedrop = d3.select("#state");
-// statedrop.on("change", runEnter);
-// var countrydrop = d3.select("#country");
-// countrydrop.on("change", runEnter);
-// var shapedrop = d3.select("#shape");
-// shapedrop.on("change", runEnter);
-// var citydrop = d3.select("#city");
-// citydrop.on("change", runEnter);
 d3.selectAll(".options").on("change", runEnter);
 function init(){
 var tbody = d3.select("tbody");
