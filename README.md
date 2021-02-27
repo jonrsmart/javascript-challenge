@@ -14,7 +14,19 @@ You can handle this... right? The planet Earth needs to know what we have found!
 
 For this part of the assignment I first created an init function to display the unfiltered table. Then, after entering a date the table updates to show only the sightings that take place on that date. 
 
-![UFO Level 1](images/ufo-level-1a.png) ![UFO Level 1b}(images/ufo-level-1b.png)
+![UFO Level 1](images/ufo-level-1a.png) ![UFO Level 1b](images/ufo-level-1b.png)
+
+#UFO Level 2
+For level 2 of this assignment, I modified the filter to contain 5 sepearate drop down lists. The dropdowns are dynamically created based on the data in the data.js file. 
+
+`var dates = [];
+//Get a Distinct list of Dates
+tableData.forEach(x => {
+  if(!dates.includes(x.datetime)){
+    //console.log(x.datetime);
+    dates.push(x.datetime);
+  }
+});`
 
 
 - - -
