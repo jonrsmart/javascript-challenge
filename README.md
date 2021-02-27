@@ -14,9 +14,8 @@ You can handle this... right? The planet Earth needs to know what we have found!
 
 For this part of the assignment I first created an init function to display the unfiltered table. Then, after entering a date the table updates to show only the sightings that take place on that date. 
 
-[UFO Level 1](images/ufo-level-1a.png) [UFO Level 1b}(images/ufo-level-1b.png)
+![UFO Level 1](images/ufo-level-1a.png) ![UFO Level 1b}(images/ufo-level-1b.png)
 
-* [UFO Sightings Data](StarterCode/static/js/data.js)
 
 - - -
 
